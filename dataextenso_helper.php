@@ -6,17 +6,17 @@ if ( ! function_exists('escrever_data'))
         
         $data = explode("-", $datetime);
         $dianum = explode(" ", $data[2]);
-        $dia = $dianum[0];
+        $dia = date($dianum[0]);
         $mes = date($data[1]);
         $ano = date($data[0]);
         
-        $semana = date('w', mktime(0,0,0,$mes,$dia,$ano) / 7 ) + 1;
+        $semana = date("w", mktime(0,0,0,$mes,$dia,$ano) );
 
-        // configuraÃ§Ã£o mes
+        // configuração mes
         switch ($mes){
         case 1: $mes = "Janeiro"; break;
         case 2: $mes = "Fevereiro"; break;
-        case 3: $mes = "MarÃ§o"; break;
+        case 3: $mes = "Março"; break;
         case 4: $mes = "Abril"; break;
         case 5: $mes = "Maio"; break;
         case 6: $mes = "Junho"; break;
@@ -28,15 +28,15 @@ if ( ! function_exists('escrever_data'))
         case 12: $mes = "Dezembro"; break;
         }
 
-        // configuraÃ§Ã£o semana
+        // configuração semana
         switch ($semana) {
         case 0: $semana = "Domingo"; break;
         case 1: $semana = "Segunda Feira"; break;
-        case 2: $semana = "TerÃ§a Feira"; break;
+        case 2: $semana = "Terça Feira"; break;
         case 3: $semana = "Quarta Feira"; break;
         case 4: $semana = "Quinta Feira"; break;
         case 5: $semana = "Sexta Feira"; break;
-        case 6: $semana = "SÃ¡bado"; break;
+        case 6: $semana = "Sábado"; break;
         }
         //Agora basta imprimir na tela...
         return ("$semana, $dia de $mes de $ano");
